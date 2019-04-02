@@ -1,0 +1,262 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+html a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 40px 0 0;
+  padding: 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 18px;
+  color: #F5F5DC;
+  margin: 0;
+  padding: 15px 0;
+  letter-spacing: .4px;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  background-color: #F5F5DC;
+}
+
+.quiz-box {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  align-items: center;
+  background-color: #FFC30B;
+  border-radius: 20px;
+  box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.6);
+  user-select: none;
+}
+
+.quiz-box #quiz {
+  width: 80%;
+  margin: 10px 0 40px;
+  display: none;
+  border: 2px dashed black;
+  padding: 20px 10px;
+}
+
+.quiz-box #quiz #question {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+.quiz-box #quiz #errorMessage {
+  color: red;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+.quiz-box #quiz #answers {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.quiz-box #quiz #answers label.questionOption {
+  margin: 0 15px 20px;
+  width: 44%;
+  font-size: 1rem;
+  height: 62px;
+  flex: 1;
+  min-width: 44%;
+}
+
+.quiz-box #quiz #answers label.questionOption::before {
+  top: -75%;
+  background-image: radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, transparent 20%, black 20%, transparent 30%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, transparent 10%, black 15%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%);
+  background-size: 10% 30%, 10% 70%, 15% 50%, 10% 70%, 8% 25%, 10% 30%, 15% 50%, 10% 30%, 8% 25%;
+}
+
+.quiz-box #quiz #answers label.questionOption::after {
+  bottom: -75%;
+  background-image: radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, transparent 10%, black 15%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%);
+  background-size: 10% 30%, 10% 70%, 15% 50%, 10% 70%, 8% 25%, 10% 30%, 15% 50%, 10% 30%, 8% 25%;
+}
+
+.quiz-box #quiz #answers label.questionOption.last::before {
+  top: -75%;
+  background-image: radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, transparent 20%, black 20%, transparent 30%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, transparent 10%, black 15%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%);
+  background-size: 10% 30%, 10% 70%, 15% 50%, 10% 70%, 8% 25%, 10% 30%, 15% 50%, 10% 30%, 8% 25%;
+}
+
+.quiz-box #quiz #answers label.questionOption.last::after {
+  bottom: -75%;
+  background-image: radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, transparent 10%, black 15%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%);
+  background-size: 10% 30%, 10% 70%, 15% 50%, 10% 70%, 8% 25%, 10% 30%, 15% 50%, 10% 30%, 8% 25%;
+}
+
+.quiz-box #quiz #answers label.checked {
+  border: 2px solid #F5F5DC !important;
+  font-weight: bold;
+  padding: 16px 30px;
+}
+
+.quiz-box #quiz #answers label input {
+  display: none;
+}
+
+.quiz-box #quiz .infoGroup {
+  display: flex;
+  color: #F5F5DC;
+  font-weight: bold;
+  margin: 30px 0 20px;
+  align-items: center;
+  font-size: 1.3rem;
+  justify-content: space-between;
+}
+
+.quiz-box #quiz .infoGroup #scoreCounter {
+  margin-left: 18px;
+}
+
+.button {
+  font-size: 2rem;
+  padding: 20px 30px;
+  margin: 25px 0 40px;
+  background-color: black;
+  color: #FFC30B;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s, background-color .3s, color .3s;
+  box-shadow: 0 2px 25px #3e2f00;
+  position: relative;
+  user-select: none;
+}
+
+.button.refresh {
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  margin: 0;
+  font-size: 1em;
+}
+
+.button:focus {
+  outline: 0;
+}
+
+.button.submit {
+  margin: 0 15px;
+  width: 44%;
+  /*margin-left: auto;*/
+  font-size: 1rem;
+  height: 62px;
+}
+
+.button.submit::before {
+  display: none;
+  top: -75%;
+  background-image: radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, transparent 20%, black 20%, transparent 30%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, transparent 10%, black 15%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%);
+  background-size: 10% 30%, 10% 70%, 15% 50%, 10% 70%, 8% 25%, 10% 30%, 15% 50%, 10% 30%, 8% 25%;
+}
+
+.button.submit::after {
+  display: none;
+  bottom: -75%;
+  background-image: radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, transparent 10%, black 15%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%);
+  background-size: 10% 30%, 10% 70%, 15% 50%, 10% 70%, 8% 25%, 10% 30%, 15% 50%, 10% 30%, 8% 25%;
+}
+
+.button::before, .button::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 140%;
+  height: 100%;
+  left: -20%;
+  z-index: -1000;
+  transition: all ease-in-out 0.5s;
+  background-repeat: no-repeat;
+}
+
+.button::before {
+  display: none;
+  top: -75%;
+  background-image: radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, transparent 20%, black 20%, transparent 30%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, transparent 10%, black 15%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+
+.button::after {
+  display: none;
+  bottom: -75%;
+  background-image: radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, transparent 10%, black 15%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%), radial-gradient(circle, black 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+
+.button.hover {
+  color: black;
+  background-color: #FFC30B;
+}
+
+.button:active {
+  transform: scale(0.9);
+  background-color: black;
+  color: #FFC30B;
+  box-shadow: 0 2px 25px #3e2f00;
+}
+
+.button.animate {
+  z-index: 0;
+  cursor: default;
+  pointer-events: none;
+}
+
+.button.animate:before {
+  display: block;
+  animation: topBubbles ease-in-out 2s forwards;
+}
+
+.button.animate:after {
+  display: block;
+  animation: bottomBubbles ease-in-out 2s forwards;
+}
+
+@keyframes topBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+  }
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+  }
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+@keyframes bottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+  }
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+  }
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>JavaScript Quiz</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400" rel="stylesheet">
+    <link rel="stylesheet" href="css\main.css">
+  </head>
+  <body>
+    <!-- Refresh browser button -->
+    <button class="button refresh" onmouseover="buttonHoverIn(this);" onmouseout="buttonHoverOut(this)" onclick="animateButton(this); reload();">Refresh Page</button>
+    <!-- Main quiz section -->
+    <div class="quiz-box">
+      <!-- Title -->
+      <h1>JavaScript Super Mega Awesome Quiz</h1>
+      <!-- Sub heading -->
+      <h2>Do you think you're a pro web developer? See how much JavaScript you know!</h2>
+      <!-- Start Button -->
+      <button class="button start" onmouseover="buttonHoverIn(this);" onmouseout="buttonHoverOut(this)" onclick="animateButton(this); delayedStartButtonClick(this, elementQuiz);">
+        Start Quiz
+      </button>
+      <!-- Quiz generator -->
+      <div id='quiz'>
+        <!-- Question element -->
+        <div id="question"></div>
+        <!-- Answer element -->
+        <div id="answers"></div>
+        <!-- Groups all quiz infomation -->
+        <div class="infoGroup">
+          <!-- Score element -->
+          <div id="scoreCounter"></div>
+          <!-- Question counter element -->
+          <div id="questionCounter"></div>
+          <!-- Submit button -->
+          <div id="submit" class="button submit" onmouseover="buttonHoverIn(this);" onmouseout="buttonHoverOut(this)" onclick="animateButton(this); delayedSubmitButtonClick(this);">Submit Answer</div>
+        </div>
+        <!-- Error element -->
+        <div id="errorMessage"></div>
+      </div>
+    </div>
+    <!--Scripts-->
+    <script src="js\main.js"></script>
+    <script src="http://localhost:35729/livereload.js"></script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+// main: ../main.scss
+// -------------------------------------------------
+//   Description:   This file contains everything to
+//                  do with the template.
+// -------------------------------------------------
+@import 'Variables';
+@import 'mixins';
+
+// -- Overall site styles -- //
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: $defaultFontSize;
+
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+}

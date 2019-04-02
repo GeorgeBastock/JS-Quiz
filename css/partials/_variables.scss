@@ -1,0 +1,27 @@
+// main: ../main.scss
+// -------------------------------------------------
+// Description: Contains all variables and mixins.
+//              Call from all partials.
+// -------------------------------------------------
+
+// -- Palette -- //
+$colorWhite: #fff;
+$colorBlack: #000;
+$colorGrey: #ccc;
+// -- Site Colors -- //
+
+// -- Layout Colors -- //
+$colorNavy: #333645;
+// -- Social -- //
+$colorSocialFacebook: #3b5998;
+$colorSocialTwitter: #4099FF;
+$colorSocialYoutube: #e52d27;
+$colorSocialLinkedIn: #007bb6;
+// -- Box Shadows -- //
+$boxShadowBottom: 0 5px 35px rgba(0,0,0,0.1);
+// -- Margin Widths -- //
+$marginWidthLarge: 970px;
+$marginWidthTablet: 750px;
+$marginWidthMobile: 100%;
+// -- Default Font Size -- //
+$defaultFontSize: 16px;
