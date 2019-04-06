@@ -136,13 +136,21 @@ body {
         margin-left: 18px;
       }
     }
+
+    .finishedData {
+      color: #F5F5DC;
+      font-weight: bold;
+      align-items: center;
+      font-size: 1.3rem;
+      justify-content: center;
+    }
   }
 }
 
 .button {
   font-size: 2rem;
   padding: 20px 30px;
-  margin: 25px 0 40px;
+  margin: 25px 0 25px;
   background-color: black;
   color: #FFC30B;
   border-radius: 15px;
@@ -169,7 +177,6 @@ body {
   &.submit {
     margin: 0 15px;
     width: 44%;
-    /*margin-left: auto;*/
     font-size: 1rem;
     height: 62px;
 
@@ -238,6 +245,24 @@ body {
     &:after {
       display: block;
       animation: bottomBubbles ease-in-out 2s forwards;
+    }
+  }
+}
+
+.quizTopic {
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 40px 0;
+
+  h2 {
+    padding: 0 10px 0 0;
+  }
+
+  label {
+    padding: 0 10px;
+
+    input {
+      display: none;
     }
   }
 }

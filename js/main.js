@@ -7,20 +7,27 @@
 function print(html) {document.write(html);}
 // Change any elements display style to block
 function show(element) {element.style.display = 'block';};
+// Change any elements display style to block
+function showFlex(element) {element.style.display = 'flex';};
 // Change any elements display style to none
 function hide(element) {element.style.display = 'none';};
 
 // Global Variables
-let questionCounter = 0;    // Keeps track of question number
+let questionCounter = 1;    // Keeps track of question number
 let score = 0;              // Keeps track of players score
 let randomQuestion;         // Keeps the current randomly generated question
 // Element Variables
-const elementQuiz = document.getElementById("quiz");                          // Stores the main quiz div element
-const elementQuestion = document.getElementById("question");                  // Stores each question element
-const elementAnswers = document.getElementById("answers");                    // Stores all answer elements
-const elementSubmit = document.getElementById("submit");                      // Stores submit button elements
-const elementScoreCounter = document.getElementById("scoreCounter");          // Stores score tracker element
-const elementQuestionCounter = document.getElementById("questionCounter");    // Stores question tracker element
+const elementQuiz = document.getElementById("quiz");                                  // Stores the main quiz div element
+const elementQuestion = document.getElementById("question");                          // Stores each question element
+const elementAnswers = document.getElementById("answers");                            // Stores all answer elements
+const elementSubmit = document.getElementById("submit");                              // Stores submit button elements
+const elementScoreCounter = document.getElementById("scoreCounter");                  // Stores score tracker element
+const elementQuestionCounter = document.getElementById("questionCounter");            // Stores question tracker element
+const elementFinished = document.getElementById("finished");                          // Stores finished page
+const elementFinishedScore = document.getElementById("finishedScore");                // Stores finished page
+const elementFinishedMessage = document.getElementById("finishedMessage");            // Stores finished page
+const elementQuestionOptions = document.getElementsByClassName("questionOption");     // Stores finished page
+const error = document.getElementById("errorMessage");                                // Stores the erro message element
 
 // Quiz default JavaScript questions as object
 // question - Stores the question being asked
@@ -66,18 +73,30 @@ const questionAmount = questions.length;    // Gets the original amount of quest
 const generateQuestion = function() {
   // Local variables
   randomQuestion = questions[Math.floor(Math.random()*questions.length)];
-/*  console.log(randomQuestion);
-  if (typeof randomQuestion == "number") {
-    generateQuestion();
-  }*/
+  console.log(randomQuestion);
+  console.log("Length of questions: " + questions.length);
+  console.log("Random number: " + Math.floor(Math.random()*questions.length));
+  console.log(questions);
+  console.log("Question counter: " + questionCounter);
+  console.log(questionAmount);
   // Checks if you are at the end of the quiz
-  if ( questionCounter === questions.length ) {
-    // Quiz end (Code not finished)
+  if ( questionCounter == questionAmount ) { // questionCounter
+    elementScoreCounter.textContent = "Score: FINISHED";
+    document.getElementsByClassName("questions")[0].style.paddingBottom = "0";
+    document.getElementsByClassName("infoGroup")[0].style.margin = "0";
+    hide(elementAnswers);
+    hide(error);
+    hide(elementSubmit);
+    hide(elementScoreCounter);
+    hide(elementQuestionCounter);
+    showFlex(elementFinished);
+    elementFinishedScore.textContent = "Final Score: " + score;
+    //elementFinishedMessage.textContent = "Well done";
   } else {
     // Creates a question with a set of answers
     elementScoreCounter.textContent = "Score: " + score;
-    elementQuestionCounter.textContent = "Question: " + (questionCounter + 1) + " / " + questionAmount;
-    elementQuestion.textContent = "Question " + (questionCounter + 1) + " : " + (randomQuestion.question);
+    elementQuestionCounter.textContent = "Question: " + (questionCounter) + " / " + questionAmount;
+    elementQuestion.textContent = "Question " + (questionCounter) + " : " + (randomQuestion.question);
     // Loops through choices and creates a button for each
     for ( let i = 0; i < randomQuestion['choices'].length; i++ ) {
       // InnerHTML creates label and radio input from a string
@@ -92,7 +111,6 @@ const checkQuestion = function() {
     const answerOptions = document.getElementsByName("buttons");                // Stores all answer button elements
     const answerOptionsLength = document.getElementsByName("buttons").length;   // Stores the amount of answer buttons (Length)
     const correctAnswer = randomQuestion['correctAnswer'];                      // Stores the current correct answer
-    const error = document.getElementById("errorMessage");                      // Stores the erro message element
     let notchecked = 0;                                                         // Stores how many of the buttons were not checked
     // Loops through how ever many answer buttons there are
     for ( let i = 0; i < answerOptionsLength; i++ ) {

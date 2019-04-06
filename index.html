@@ -23,10 +23,16 @@
       <button class="button start" onmouseover="buttonHoverIn(this);" onmouseout="buttonHoverOut(this)" onclick="animateButton(this); delayedStartButtonClick(this, elementQuiz);">
         Start Quiz
       </button>
+      <div class="quizTopic">
+        <h2>Quiz topic: </h2>
+        <label><input type="radio" name="topic">Javascript</input></label>
+        <label><input type="radio" name="topic">Gaming</input></label>
+        <label><input type="radio" name="topic">Food</input></label>
+      </div>
       <!-- Quiz generator -->
       <div id='quiz'>
         <!-- Question element -->
-        <div id="question"></div>
+        <div id="question" class="questions"></div>
         <!-- Answer element -->
         <div id="answers"></div>
         <!-- Groups all quiz infomation -->
@@ -40,6 +46,10 @@
         </div>
         <!-- Error element -->
         <div id="errorMessage"></div>
+        <div id="finished" class="finishedData">
+          <div id="finishedScore" class="finishedScore"></div>
+          <div id="finishedMessage" class="finishedMessage"></div>
+        </div>
       </div>
     </div>
     <!--Scripts-->
